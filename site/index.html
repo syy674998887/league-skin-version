@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b0d11">
+    <meta name="description" content="按补丁版本浏览 League of Legends 皮肤。">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="League Skin Version">
+    <meta property="og:description" content="按补丁版本浏览 League of Legends 皮肤。">
+    <title>League Skin Version</title>
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("league-skin-version-theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.dataset.theme = savedTheme;
+        }
+      } catch (_error) {}
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=20260923-62">
+    <script type="module" src="./app.js?v=20260923-62"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#skin-browser" data-i18n="skipToSkins">跳到皮肤列表</a>
+
+    <header class="site-header">
+      <div class="header-inner archive-header-inner">
+        <div class="header-brand">
+          <a
+            class="github-link"
+            href="https://github.com/syy674998887/league-skin-version"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="在 GitHub 查看 League Skin Version"
+            data-i18n-aria-label="githubRepository"
+          >
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65 0 0 1 8 4.77c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path>
+            </svg>
+          </a>
+        </div>
+        <p class="update-note">
+          <span data-i18n="updatedLabel">更新</span>
+          <time id="updated-at">载入中</time>
+        </p>
+        <div class="header-actions">
+          <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to English">
+            <span class="language-active" id="language-active">中文</span>
+            <span class="language-divider" aria-hidden="true">/</span>
+            <span id="language-next">EN</span>
+          </button>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换到浅色模式" title="切换到浅色模式">
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="3.5"></circle>
+              <path d="M12 2.5v2M12 19.5v2M4.5 12h-2M21.5 12h-2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"></path>
+            </svg>
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.2 15.2A8.2 8.2 0 0 1 8.8 3.8a8.2 8.2 0 1 0 11.4 11.4Z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="overview" aria-labelledby="page-title">
+        <div class="overview-copy">
+          <p class="eyebrow" data-i18n="archiveEyebrow">LEAGUE OF LEGENDS SKIN ARCHIVE</p>
+          <h1 id="page-title" data-i18n="pageTitle">英雄联盟皮肤档案</h1>
+        </div>
+
+        <p class="collection-summary" aria-label="数据概览" data-i18n-aria-label="collectionAria">
+          <span class="collection-intro" data-i18n="collected">已经收录</span>
+          <span class="collection-stat"><strong id="total-skins">—</strong> <span data-i18n="skinsUnit">款皮肤</span></span>
+          <span class="collection-stat"><strong id="total-versions">—</strong> <span data-i18n="versionsUnit">个版本</span></span>
+          <span class="collection-stat"><strong id="total-champions">—</strong> <span data-i18n="championsUnit">位英雄</span></span>
+        </p>
+      </section>
+
+      <section class="browser" id="skin-browser" aria-label="皮肤列表" data-i18n-aria-label="skinBrowserAria">
+        <div class="browser-layout">
+          <nav class="version-strip" id="version-strip" aria-label="版本快捷导航" data-i18n-aria-label="versionNavigation"></nav>
+
+          <div class="browser-content">
+            <div class="toolbar" role="search">
+              <label class="control-field search-field">
+                <span data-i18n="searchLabel">检索</span>
+                <input id="skin-search" type="search" placeholder="皮肤名字、ID" data-i18n-placeholder="searchPlaceholder" autocomplete="off" disabled>
+              </label>
+
+              <div class="control-field">
+                <span id="champion-filter-label" data-i18n="championLabel">英雄</span>
+                <div class="custom-select" id="champion-filter">
+                  <button class="custom-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="champion-filter-label champion-filter-value" disabled>
+                    <span class="custom-select-value" id="champion-filter-value"></span>
+                    <svg class="custom-select-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6"></path></svg>
+                  </button>
+                  <div class="custom-select-menu" role="listbox" aria-labelledby="champion-filter-label" hidden></div>
+                </div>
+              </div>
+
+              <div class="control-field">
+                <span id="series-filter-label" data-i18n="skinLineLabel">皮肤系列</span>
+                <div class="custom-select" id="series-filter">
+                  <button class="custom-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="series-filter-label series-filter-value" disabled>
+                    <span class="custom-select-value" id="series-filter-value"></span>
+                    <svg class="custom-select-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6"></path></svg>
+                  </button>
+                  <div class="custom-select-menu" role="listbox" aria-labelledby="series-filter-label" hidden></div>
+                </div>
+              </div>
+
+              <div class="control-field">
+                <span id="rarity-filter-label" data-i18n="rarityLabel">皮肤等级</span>
+                <div class="custom-select" id="rarity-filter">
+                  <button class="custom-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="rarity-filter-label rarity-filter-value" disabled>
+                    <span class="custom-select-value" id="rarity-filter-value"></span>
+                    <svg class="custom-select-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6"></path></svg>
+                  </button>
+                  <div class="custom-select-menu" role="listbox" aria-labelledby="rarity-filter-label" hidden></div>
+                </div>
+              </div>
+
+              <div class="control-field">
+                <span id="legacy-filter-label">Legacy</span>
+                <div class="custom-select" id="legacy-filter">
+                  <button class="custom-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="legacy-filter-label legacy-filter-value" disabled>
+                    <span class="custom-select-value" id="legacy-filter-value"></span>
+                    <svg class="custom-select-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6"></path></svg>
+                  </button>
+                  <div class="custom-select-menu" role="listbox" aria-labelledby="legacy-filter-label" hidden></div>
+                </div>
+              </div>
+
+              <div class="control-field">
+                <span id="chroma-filter-label" data-i18n="chromaLabel">炫彩</span>
+                <div class="custom-select" id="chroma-filter">
+                  <button class="custom-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="chroma-filter-label chroma-filter-value" disabled>
+                    <span class="custom-select-value" id="chroma-filter-value"></span>
+                    <svg class="custom-select-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6"></path></svg>
+                  </button>
+                  <div class="custom-select-menu" role="listbox" aria-labelledby="chroma-filter-label" hidden></div>
+                </div>
+              </div>
+
+              <button class="clear-button" id="clear-filters" type="button" disabled data-i18n="reset">重置</button>
+            </div>
+
+            <p class="result-summary" id="result-summary" aria-live="polite" hidden></p>
+
+            <div class="error-panel" id="error-panel" role="alert" hidden>
+              <strong data-i18n="loadErrorTitle">数据暂时无法载入</strong>
+              <p data-i18n="loadErrorBody">请稍后刷新页面，或检查最新一次 Pages 部署是否成功。</p>
+            </div>
+
+            <div class="version-list" id="skin-grid" aria-busy="true"></div>
+
+            <div class="empty-state" id="empty-state" hidden>
+              <strong data-i18n="emptyTitle">没有找到匹配的皮肤</strong>
+              <p data-i18n="emptyBody">换一个名称、英雄或筛选条件试试。</p>
+            </div>
+
+            <div
+              class="scroll-sentinel"
+              id="scroll-sentinel"
+              role="status"
+              aria-label="继续滚动以加载更多版本"
+              data-i18n-aria-label="loadMoreAria"
+              hidden
+            >
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button
+      class="back-to-top"
+      id="back-to-top"
+      type="button"
+      aria-label="回到顶部"
+      aria-hidden="true"
+      data-i18n-aria-label="backToTop"
+      tabindex="-1"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 11 12 5l6 6M12 5v14"></path>
+      </svg>
+    </button>
+
+    <footer class="site-footer" id="site-footer">
+      <section class="footer-drawer" id="footer-drawer" aria-hidden="true">
+        <div class="footer-drawer-inner">
+          <section class="footer-drawer-panel" data-footer-panel="disclaimer" hidden>
+            <header class="footer-drawer-heading">
+              <h2 data-i18n="disclaimerTitle">免责声明</h2>
+            </header>
+            <div class="footer-drawer-sections">
+              <section class="footer-notice-section">
+                <h3 data-i18n="disclaimerProjectTitle">项目性质</h3>
+                <p data-i18n="disclaimerBodyOne">League Skin Version 是免费、非商业的社区资料项目，用于整理、展示和检索 League of Legends 皮肤版本信息。</p>
+                <p data-i18n="disclaimerBodyTwo">本项目由社区独立运营，未获得 Riot Games 认可或赞助，也不代表 Riot Games 的观点。</p>
+                <p>
+                  <span data-i18n="riotPolicyBefore">本项目依据 Riot Games 的“</span><a href="https://www.riotgames.com/en/legal" target="_blank" rel="noopener noreferrer" data-i18n="riotPolicyName">Legal Jibber Jabber</a><span data-i18n="riotPolicyAfter">”（社区内容政策）使用归 Riot Games 所有的素材；Riot Games 服务另受</span><a href="https://www.riotgames.com/en/terms-of-service" target="_blank" rel="noopener noreferrer" data-i18n="riotTermsName">《服务条款》</a><span data-i18n="sentenceEnd">约束。</span>
+                </p>
+              </section>
+              <section class="footer-notice-section">
+                <h3 data-i18n="ownershipTitle">权利与许可</h3>
+                <p data-i18n="ownershipBodyOne">League of Legends、Riot Games 及相关内容、名称、图像、动画、视频和商标，均归 Riot Games, Inc. 或相应权利人所有。</p>
+                <p data-i18n="ownershipBodyTwo">本项目的 MIT License 仅适用于原创代码和文档，不涵盖第三方数据、图像、视频、商标或其他素材，也不授予对这些内容的任何权利。</p>
+              </section>
+              <section class="footer-notice-section">
+                <h3 data-i18n="accuracyTitle">准确性与可用性</h3>
+                <p data-i18n="accuracyBody">本站内容仅供参考，可能存在遗漏、延迟、来源差异或处理错误。PBE 与 Upcoming 内容在正式发布前可能随时变更、延期或取消。本站不保证内容完整、及时或绝对准确；作出重要判断前，请核对原始来源。</p>
+              </section>
+            </div>
+          </section>
+
+          <section class="footer-drawer-panel" data-footer-panel="sources" hidden>
+            <header class="footer-drawer-heading">
+              <h2 data-i18n="sourcesTitle">数据来源</h2>
+            </header>
+            <div class="footer-drawer-sections">
+              <section class="footer-notice-section">
+                <h3 data-i18n="sourcesDataTitle">数据与素材</h3>
+                <p>
+                  <span data-i18n="sourcesBeforeWiki">皮肤版本记录、补丁日期和静态原画主要来自 </span><a href="https://wiki.leagueoflegends.com/en-us/" target="_blank" rel="noopener noreferrer">League of Legends Wiki</a><span data-i18n="sourcesBetween">；客户端名称、系列、等级、Legacy 状态、炫彩和动态素材来自 </span><a href="https://www.communitydragon.org/" target="_blank" rel="noopener noreferrer">CommunityDragon</a><span data-i18n="sourcesAfterCdragon">。缺失的静态素材可能回退至 CommunityDragon。</span>
+                </p>
+                <p data-i18n="sourcesBodyTwo">第三方内容受相应来源及原权利人的许可、条款和政策约束。列明来源仅用于说明出处，不代表合作、认可或担保。</p>
+              </section>
+              <section class="footer-notice-section">
+                <h3 data-i18n="thirdPartyTitle">第三方网站</h3>
+                <p data-i18n="thirdPartyBody">外部链接由独立第三方运营。访问时请查阅并遵守其条款和隐私政策；本站不控制其内容、可用性或数据处理。</p>
+              </section>
+            </div>
+          </section>
+
+          <section class="footer-drawer-panel" data-footer-panel="privacy" hidden>
+            <header class="footer-drawer-heading">
+              <h2 data-i18n="privacyTitle">隐私</h2>
+            </header>
+            <div class="footer-drawer-sections">
+              <section class="footer-notice-section footer-notice-section-wide">
+                <h3 data-i18n="privacyDataTitle">本地数据与外部请求</h3>
+                <p data-i18n="privacyBodyOne">本站不提供账户或提交表单，也不运行由本项目运营的分析服务；仅在浏览器本地保存语言与主题偏好。</p>
+                <p data-i18n="privacyBodyTwo">访问本站以及加载第三方图片或视频时，托管平台或相关资源提供方可能接收 IP 地址、浏览器请求信息等常规网络数据，并按其自身政策处理。</p>
+              </section>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <div class="footer-inner">
+        <p class="footer-summary" data-i18n="footerSummary">League Skin Version 是由社区独立运营的免费、非商业资料项目，未获得 Riot Games 认可或赞助。</p>
+        <nav class="footer-links" aria-label="网站声明与政策" data-i18n-aria-label="footerLinksAria">
+          <button type="button" data-footer-panel-target="disclaimer" aria-controls="footer-drawer" aria-expanded="false" data-i18n="footerDisclaimer">免责声明</button>
+          <button type="button" data-footer-panel-target="sources" aria-controls="footer-drawer" aria-expanded="false" data-i18n="footerSources">数据来源</button>
+          <button type="button" data-footer-panel-target="privacy" aria-controls="footer-drawer" aria-expanded="false" data-i18n="footerPrivacy">隐私</button>
+          <a href="https://www.riotgames.com/en/legal" target="_blank" rel="noopener noreferrer" data-i18n="riotPolicyLink">Riot 政策</a>
+        </nav>
+      </div>
+    </footer>
+
+    <dialog class="art-viewer" id="art-viewer" aria-labelledby="art-viewer-title">
+      <div class="art-viewer-panel">
+        <button class="art-viewer-close" id="art-viewer-close" type="button" aria-label="关闭原画" data-i18n-aria-label="closeArtwork">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6 18 18M18 6 6 18"></path>
+          </svg>
+        </button>
+        <div class="art-viewer-modes" id="art-viewer-modes" role="group" aria-label="原画版本" data-i18n-aria-label="artModesAria">
+          <button type="button" data-view-mode="uncentered" data-i18n="uncenteredArt">原始</button>
+          <button type="button" data-view-mode="centered" data-i18n="centeredArt">聚焦</button>
+          <button type="button" data-view-mode="video" data-i18n="animatedArt" hidden>动态</button>
+        </div>
+        <figure>
+          <div class="art-viewer-media" id="art-viewer-media">
+            <img id="art-viewer-image" decoding="async" draggable="false" alt="">
+            <video id="art-viewer-video" muted loop playsinline controls preload="none" hidden></video>
+          </div>
+          <figcaption class="art-viewer-caption">
+            <div class="art-viewer-heading">
+              <div class="art-viewer-title-line">
+                <strong id="art-viewer-title"></strong>
+                <div class="art-viewer-meta" id="art-viewer-meta"></div>
+              </div>
+            </div>
+            <div class="art-viewer-actions" id="art-viewer-actions"></div>
+          </figcaption>
+        </figure>
+        <section class="art-viewer-details" id="art-viewer-details" aria-label="炫彩" data-i18n-aria-label="chromaLabel" hidden>
+          <div
+            class="art-viewer-details-grid"
+            id="art-viewer-details-grid"
+            tabindex="0"
+            aria-label="炫彩列表，可横向滚动"
+            data-i18n-aria-label="chromaScrollAria"
+          ></div>
+        </section>
+      </div>
+      <aside class="art-viewer-playlist" id="art-viewer-playlist" aria-labelledby="art-viewer-playlist-title" popover="manual" hidden>
+        <button class="art-viewer-playlist-toggle" id="art-viewer-playlist-toggle" type="button" aria-label="收起皮肤列表" aria-controls="art-viewer-playlist-list" aria-expanded="true" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m9 6 6 6-6 6"></path>
+          </svg>
+        </button>
+        <div class="art-viewer-playlist-panel">
+          <div class="art-viewer-playlist-heading">
+            <h2 id="art-viewer-playlist-title"></h2>
+          </div>
+          <div class="art-viewer-playlist-list" id="art-viewer-playlist-list"></div>
+        </div>
+      </aside>
+    </dialog>
+
+    <template id="skin-card-template">
+      <article class="skin-card">
+        <div class="skin-media">
+          <img loading="lazy" decoding="async" draggable="false" alt="">
+          <span class="skin-source-tag" hidden></span>
+          <div class="skin-status-icons" aria-hidden="true">
+            <span class="skin-rarity" hidden></span>
+            <span class="skin-legacy" hidden></span>
+          </div>
+          <span class="skin-fallback" aria-hidden="true"></span>
+          <div class="skin-overlay">
+            <h3 class="skin-name"></h3>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <noscript>
+      <p class="noscript">此页面需要 JavaScript 才能读取和筛选皮肤数据。</p>
+    </noscript>
+  </body>
+</html>

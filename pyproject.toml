@@ -1,0 +1,22 @@
+[project]
+name = "league-skin-version"
+version = "0.1.0"
+description = "Maintain League of Legends skin IDs and release patch versions"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+skin-update = "league_skin_version.updater:main"
+site-build = "league_skin_version.site_builder:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/league_skin_version"]
+
+[tool.uv]
+package = true
