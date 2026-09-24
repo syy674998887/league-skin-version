@@ -1,0 +1,104 @@
+name: Update data and deploy Pages
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "34 12 * * *"
+      timezone: "America/New_York"
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: league-skin-version-pages
+  queue: max
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      pages: read
+      actions: read
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+
+      - name: Check update policy
+        id: policy
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: python -B -m league_skin_version.workflow_policy
+
+      - name: Update skin data
+        if: steps.policy.outputs.update == 'true'
+        run: python -B skin_update.py
+
+      - name: Run tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: python -B -m unittest discover -s tests -q
+
+      - name: Read completed sync time
+        id: sync-time
+        if: steps.policy.outputs.update == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: python -B -m league_skin_version.workflow_policy --current-sync
+
+      - name: Build static site
+        env:
+          LSV_DATA_UPDATED_AT: ${{ steps.sync-time.outputs.data_updated_at || steps.policy.outputs.data_updated_at }}
+        run: python -B build_site.py
+
+      - name: Commit updated data
+        if: steps.policy.outputs.update == 'true'
+        shell: bash
+        run: |
+          git add -- skin_ids.json skin_versions.json patch_dates.json skin_assets.json
+          if git diff --cached --quiet; then
+            echo "Skin data is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "data: update skin archive"
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
