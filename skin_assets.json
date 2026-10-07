@@ -41414,6 +41414,48 @@
         "bytes": 53173
       }
     },
+    "81078": {
+      "uncentered": {
+        "title": "File:Ezreal HEARTSTEELLiveMyLifeSkin.jpg",
+        "requestedTitle": "File:Ezreal HEARTSTEELLiveMyLifeSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Ezreal_HEARTSTEELLiveMyLifeSkin.jpg?91613",
+        "sha1": "661dbcd6066665ef8453afc238ee49678e3de565",
+        "timestamp": "2026-09-23T19:26:49Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 254594
+      },
+      "loading": {
+        "title": "File:Ezreal HEARTSTEELLiveMyLifeLoading.jpg",
+        "requestedTitle": "File:Ezreal HEARTSTEELLiveMyLifeLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Ezreal_HEARTSTEELLiveMyLifeLoading.jpg?583ce",
+        "sha1": "86e02782f7f0afc360643b3bccd585b217ed5587",
+        "timestamp": "2026-09-23T19:27:36Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 52865
+      },
+      "centered": {
+        "title": "File:Ezreal HEARTSTEELLiveMyLifeCentered.jpg",
+        "requestedTitle": "File:Ezreal HEARTSTEELLiveMyLifeCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Ezreal_HEARTSTEELLiveMyLifeCentered.jpg?0de1a",
+        "sha1": "e8622129e46213ef6880541443157df37158dc80",
+        "timestamp": "2026-09-23T19:28:25Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 123476
+      },
+      "tile": {
+        "title": "File:Ezreal HEARTSTEELLiveMyLifeTile.jpg",
+        "requestedTitle": "File:Ezreal HEARTSTEELLiveMyLifeTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Ezreal_HEARTSTEELLiveMyLifeTile.jpg?d85f2",
+        "sha1": "75b9d676053f6ff968ed48c7bc373b0c2e14bd81",
+        "timestamp": "2026-09-23T19:28:40Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 56519
+      }
+    },
     "82001": {
       "uncentered": {
         "title": "File:Mordekaiser DragonKnightSkin.jpg",
@@ -47502,6 +47544,48 @@
         "width": 380,
         "height": 380,
         "bytes": 71152
+      }
+    },
+    "96065": {
+      "uncentered": {
+        "title": "File:Kog'Maw PrestigeClassicBaronSkin.jpg",
+        "requestedTitle": "File:Kog'Maw PrestigeClassicBaronSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Kog%27Maw_PrestigeClassicBaronSkin.jpg?e35ee",
+        "sha1": "b637b0ab482911e80661ca0c3d215ca91eb8d9c4",
+        "timestamp": "2026-09-23T19:38:17Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 273181
+      },
+      "loading": {
+        "title": "File:Kog'Maw PrestigeClassicBaronLoading.jpg",
+        "requestedTitle": "File:Kog'Maw PrestigeClassicBaronLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Kog%27Maw_PrestigeClassicBaronLoading.jpg?c8fe9",
+        "sha1": "d5fc35df6618ba141f4ddd5d207eb05cd1e15f6d",
+        "timestamp": "2026-09-23T19:38:36Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 65489
+      },
+      "centered": {
+        "title": "File:Kog'Maw PrestigeClassicBaronCentered.jpg",
+        "requestedTitle": "File:Kog'Maw PrestigeClassicBaronCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Kog%27Maw_PrestigeClassicBaronCentered.jpg?88bfd",
+        "sha1": "efea6fb05d431ee0baa7fe2c33a23409b97d16de",
+        "timestamp": "2026-09-23T19:38:54Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 136119
+      },
+      "tile": {
+        "title": "File:Kog'Maw PrestigeClassicBaronTile.jpg",
+        "requestedTitle": "File:Kog'Maw PrestigeClassicBaronTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Kog%27Maw_PrestigeClassicBaronTile.jpg?84c92",
+        "sha1": "401fe2482811d3a445048c08ba79399cc589b762",
+        "timestamp": "2026-09-23T19:39:07Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 74129
       }
     },
     "98001": {
@@ -61194,6 +61278,48 @@
         "width": 380,
         "height": 380,
         "bytes": 71452
+      }
+    },
+    "141032": {
+      "uncentered": {
+        "title": "File:Kayn HEARTSTEELLiveMyLifeSkin.jpg",
+        "requestedTitle": "File:Kayn HEARTSTEELLiveMyLifeSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Kayn_HEARTSTEELLiveMyLifeSkin.jpg?39cb0",
+        "sha1": "fbe84ec535d53035955c059c87f873ede2702e59",
+        "timestamp": "2026-09-23T19:31:58Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 271405
+      },
+      "loading": {
+        "title": "File:Kayn HEARTSTEELLiveMyLifeLoading.jpg",
+        "requestedTitle": "File:Kayn HEARTSTEELLiveMyLifeLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Kayn_HEARTSTEELLiveMyLifeLoading.jpg?ae3cf",
+        "sha1": "a17d8c5bbd53d75854b8fd4af7c68ae70df4968b",
+        "timestamp": "2026-09-23T19:32:33Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 58826
+      },
+      "centered": {
+        "title": "File:Kayn HEARTSTEELLiveMyLifeCentered.jpg",
+        "requestedTitle": "File:Kayn HEARTSTEELLiveMyLifeCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Kayn_HEARTSTEELLiveMyLifeCentered.jpg?b397a",
+        "sha1": "cc4403cc1e22ad73e33ab2600dc05bbea100d712",
+        "timestamp": "2026-09-23T19:33:08Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 136066
+      },
+      "tile": {
+        "title": "File:Kayn HEARTSTEELLiveMyLifeTile.jpg",
+        "requestedTitle": "File:Kayn HEARTSTEELLiveMyLifeTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Kayn_HEARTSTEELLiveMyLifeTile.jpg?5a6d4",
+        "sha1": "f2cb9d88575539ae7a6a239fb5dfb8fbd7942fbf",
+        "timestamp": "2026-09-23T19:33:48Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 72789
       }
     },
     "142001": {
@@ -78332,6 +78458,48 @@
         "bytes": 77287
       }
     },
+    "523041": {
+      "uncentered": {
+        "title": "File:Aphelios HEARTSTEELLiveMyLifeSkin.jpg",
+        "requestedTitle": "File:Aphelios HEARTSTEELLiveMyLifeSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Aphelios_HEARTSTEELLiveMyLifeSkin.jpg?7bbc7",
+        "sha1": "d694cd10a152cb5924c2c0ba917e7bfd6e046f9a",
+        "timestamp": "2026-09-23T19:23:08Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 266829
+      },
+      "loading": {
+        "title": "File:Aphelios HEARTSTEELLiveMyLifeLoading.jpg",
+        "requestedTitle": "File:Aphelios HEARTSTEELLiveMyLifeLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Aphelios_HEARTSTEELLiveMyLifeLoading.jpg?f9d22",
+        "sha1": "255b94296295285e3c01fede2b37ad6575a99903",
+        "timestamp": "2026-09-23T19:23:37Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 65028
+      },
+      "centered": {
+        "title": "File:Aphelios HEARTSTEELLiveMyLifeCentered.jpg",
+        "requestedTitle": "File:Aphelios HEARTSTEELLiveMyLifeCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Aphelios_HEARTSTEELLiveMyLifeCentered.jpg?492fb",
+        "sha1": "2c9e7917a2133eafb77a1b82334807c726682eab",
+        "timestamp": "2026-09-23T19:24:20Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 132949
+      },
+      "tile": {
+        "title": "File:Aphelios HEARTSTEELLiveMyLifeTile.jpg",
+        "requestedTitle": "File:Aphelios HEARTSTEELLiveMyLifeTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Aphelios_HEARTSTEELLiveMyLifeTile.jpg?dc7ba",
+        "sha1": "95a42de9c13fd9dda61445002be4246e52b138f2",
+        "timestamp": "2026-09-23T19:25:12Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 75697
+      }
+    },
     "526001": {
       "uncentered": {
         "title": "File:Rell BattleQueenSkin.jpg",
@@ -79634,6 +79802,48 @@
         "bytes": 80029
       }
     },
+    "777077": {
+      "uncentered": {
+        "title": "File:Yone HEARTSTEELLiveMyLifeSkin.jpg",
+        "requestedTitle": "File:Yone HEARTSTEELLiveMyLifeSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Yone_HEARTSTEELLiveMyLifeSkin.jpg?3e7e4",
+        "sha1": "477fe52b94edc16187221cdc39692c86a62bc975",
+        "timestamp": "2026-09-24T00:32:46Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 269681
+      },
+      "loading": {
+        "title": "File:Yone HEARTSTEELLiveMyLifeLoading.jpg",
+        "requestedTitle": "File:Yone HEARTSTEELLiveMyLifeLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Yone_HEARTSTEELLiveMyLifeLoading.jpg?5b552",
+        "sha1": "9ea0ab4a7e5b087392c952fe091374ba2dc10d85",
+        "timestamp": "2026-09-24T00:33:12Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 54715
+      },
+      "centered": {
+        "title": "File:Yone HEARTSTEELLiveMyLifeCentered.jpg",
+        "requestedTitle": "File:Yone HEARTSTEELLiveMyLifeCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Yone_HEARTSTEELLiveMyLifeCentered.jpg?2cd63",
+        "sha1": "6fc59e13b60177442651a9606f41b078c3fad0c2",
+        "timestamp": "2026-09-24T00:33:54Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 127400
+      },
+      "tile": {
+        "title": "File:Yone HEARTSTEELLiveMyLifeTile.jpg",
+        "requestedTitle": "File:Yone HEARTSTEELLiveMyLifeTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Yone_HEARTSTEELLiveMyLifeTile.jpg?7aeb1",
+        "sha1": "282e90ab4a38eeb357ac87f5c05a565cd75676cc",
+        "timestamp": "2026-09-24T00:34:09Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 64049
+      }
+    },
     "799001": {
       "uncentered": {
         "title": "File:Ambessa ChosenoftheWolfSkin.jpg",
@@ -80388,6 +80598,48 @@
         "width": 380,
         "height": 380,
         "bytes": 68499
+      }
+    },
+    "875076": {
+      "uncentered": {
+        "title": "File:Sett PrestigeHEARTSTEELLiveMyLifeSkin.jpg",
+        "requestedTitle": "File:Sett PrestigeHEARTSTEELLiveMyLifeSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Sett_PrestigeHEARTSTEELLiveMyLifeSkin.jpg?27483",
+        "sha1": "28e399ab1c544606fa7a80228bb6c4497e30fc72",
+        "timestamp": "2026-09-23T19:34:26Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 263642
+      },
+      "loading": {
+        "title": "File:Sett PrestigeHEARTSTEELLiveMyLifeLoading.jpg",
+        "requestedTitle": "File:Sett PrestigeHEARTSTEELLiveMyLifeLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Sett_PrestigeHEARTSTEELLiveMyLifeLoading.jpg?592f3",
+        "sha1": "2d142bdd2bce2fb7a6c6388da55abff46e510fa2",
+        "timestamp": "2026-09-23T19:35:18Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 67283
+      },
+      "centered": {
+        "title": "File:Sett PrestigeHEARTSTEELLiveMyLifeCentered.jpg",
+        "requestedTitle": "File:Sett PrestigeHEARTSTEELLiveMyLifeCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Sett_PrestigeHEARTSTEELLiveMyLifeCentered.jpg?50e73",
+        "sha1": "c51859fd4cac872eb96d2bacf711a38dade02564",
+        "timestamp": "2026-09-23T19:36:00Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 129917
+      },
+      "tile": {
+        "title": "File:Sett PrestigeHEARTSTEELLiveMyLifeTile.jpg",
+        "requestedTitle": "File:Sett PrestigeHEARTSTEELLiveMyLifeTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Sett_PrestigeHEARTSTEELLiveMyLifeTile.jpg?b0e1d",
+        "sha1": "ce6c6d5dab5538d69a450aba10dcd99e60ffddaa",
+        "timestamp": "2026-09-23T19:36:17Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 72878
       }
     },
     "876001": {
@@ -81480,6 +81732,48 @@
         "width": 380,
         "height": 380,
         "bytes": 36441
+      }
+    },
+    "897018": {
+      "uncentered": {
+        "title": "File:K'Sante HEARTSTEELLiveMyLifeSkin.jpg",
+        "requestedTitle": "File:K'Sante HEARTSTEELLiveMyLifeSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/K%27Sante_HEARTSTEELLiveMyLifeSkin.jpg?45631",
+        "sha1": "929568a69ed6d78f906d8f451209d3faa4d23096",
+        "timestamp": "2026-09-23T19:29:35Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 262872
+      },
+      "loading": {
+        "title": "File:K'Sante HEARTSTEELLiveMyLifeLoading.jpg",
+        "requestedTitle": "File:K'Sante HEARTSTEELLiveMyLifeLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/K%27Sante_HEARTSTEELLiveMyLifeLoading.jpg?9e3e7",
+        "sha1": "39ca55f8138c7b9cab428f37e84cce9fdf7e3d7e",
+        "timestamp": "2026-09-23T19:30:08Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 56403
+      },
+      "centered": {
+        "title": "File:K'Sante HEARTSTEELLiveMyLifeCentered.jpg",
+        "requestedTitle": "File:K'Sante HEARTSTEELLiveMyLifeCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/K%27Sante_HEARTSTEELLiveMyLifeCentered.jpg?bc765",
+        "sha1": "78e2a098f6aa9a561242263c2304381890991f6c",
+        "timestamp": "2026-09-23T19:30:49Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 142620
+      },
+      "tile": {
+        "title": "File:K'Sante HEARTSTEELLiveMyLifeTile.jpg",
+        "requestedTitle": "File:K'Sante HEARTSTEELLiveMyLifeTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/K%27Sante_HEARTSTEELLiveMyLifeTile.jpg?6fc8c",
+        "sha1": "c0ed20dec78b2fbd14a3a08fb23bfaccd81653a5",
+        "timestamp": "2026-09-23T19:31:04Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 77346
       }
     },
     "901001": {
