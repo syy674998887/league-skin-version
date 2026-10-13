@@ -44,25 +44,20 @@ jobs:
         run: python -B -m league_skin_version.workflow_policy
 
       - name: Update skin data
+        id: sync
         if: steps.policy.outputs.update == 'true'
-        run: python -B skin_update.py
+        run: |
+          python -B skin_update.py
+          echo "data_updated_at=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_OUTPUT"
 
       - name: Run tests
         env:
           PYTHONPATH: ${{ github.workspace }}/src
         run: python -B -m unittest discover -s tests -q
 
-      - name: Read completed sync time
-        id: sync-time
-        if: steps.policy.outputs.update == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PYTHONPATH: ${{ github.workspace }}/src
-        run: python -B -m league_skin_version.workflow_policy --current-sync
-
       - name: Build static site
         env:
-          LSV_DATA_UPDATED_AT: ${{ steps.sync-time.outputs.data_updated_at || steps.policy.outputs.data_updated_at }}
+          LSV_DATA_UPDATED_AT: ${{ steps.sync.outputs.data_updated_at || steps.policy.outputs.data_updated_at }}
         run: python -B build_site.py
 
       - name: Commit updated data
