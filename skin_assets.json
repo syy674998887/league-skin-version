@@ -43262,6 +43262,48 @@
         "bytes": 73752
       }
     },
+    "84103": {
+      "uncentered": {
+        "title": "File:Akali TrueDamageKnowMyNameSkin.jpg",
+        "requestedTitle": "File:Akali TrueDamageKnowMyNameSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_TrueDamageKnowMyNameSkin.jpg?d4f1f",
+        "sha1": "cccdc99b4a5e3edd48364a3bf902b25dc0e415dc",
+        "timestamp": "2026-10-13T13:46:04Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 263967
+      },
+      "loading": {
+        "title": "File:Akali TrueDamageKnowMyNameLoading.jpg",
+        "requestedTitle": "File:Akali TrueDamageKnowMyNameLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_TrueDamageKnowMyNameLoading.jpg?ba046",
+        "sha1": "f7cdf63572a119915cbc46869998332b56d56466",
+        "timestamp": "2026-10-13T13:47:18Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 63080
+      },
+      "centered": {
+        "title": "File:Akali TrueDamageKnowMyNameCentered.jpg",
+        "requestedTitle": "File:Akali TrueDamageKnowMyNameCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_TrueDamageKnowMyNameCentered.jpg?30dd0",
+        "sha1": "d61837121c01e897ed5205267ba5812533c4f2ac",
+        "timestamp": "2026-10-13T13:50:04Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 125659
+      },
+      "tile": {
+        "title": "File:Akali TrueDamageKnowMyNameTile.jpg",
+        "requestedTitle": "File:Akali TrueDamageKnowMyNameTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_TrueDamageKnowMyNameTile.jpg?275a1",
+        "sha1": "f3456a06b8ca7f1625dc38eb4a41fb3f3ccbd15a",
+        "timestamp": "2026-10-13T13:51:53Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 71302
+      }
+    },
     "85001": {
       "uncentered": {
         "title": "File:Kennen DeadlySkin.jpg",
@@ -64850,6 +64892,48 @@
         "bytes": 65323
       }
     },
+    "157097": {
+      "uncentered": {
+        "title": "File:Yasuo TrueDamageKnowMyNameSkin.jpg",
+        "requestedTitle": "File:Yasuo TrueDamageKnowMyNameSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Yasuo_TrueDamageKnowMyNameSkin.jpg?f3ea1",
+        "sha1": "4d973b1148939a9c5165bf1b8e29e018f95ba922",
+        "timestamp": "2026-10-09T16:10:45Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 261290
+      },
+      "loading": {
+        "title": "File:Yasuo TrueDamageKnowMyNameLoading.jpg",
+        "requestedTitle": "File:Yasuo TrueDamageKnowMyNameLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Yasuo_TrueDamageKnowMyNameLoading.jpg?e5733",
+        "sha1": "ea296f31db697517bcb02f9a565cb4f6abb7df11",
+        "timestamp": "2026-10-09T16:11:07Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 65798
+      },
+      "centered": {
+        "title": "File:Yasuo TrueDamageKnowMyNameCentered.jpg",
+        "requestedTitle": "File:Yasuo TrueDamageKnowMyNameCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Yasuo_TrueDamageKnowMyNameCentered.jpg?cc75b",
+        "sha1": "c5d1b5c737815d648487375bb39fc530360656f2",
+        "timestamp": "2026-10-09T16:11:55Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 130703
+      },
+      "tile": {
+        "title": "File:Yasuo TrueDamageKnowMyNameTile.jpg",
+        "requestedTitle": "File:Yasuo TrueDamageKnowMyNameTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Yasuo_TrueDamageKnowMyNameTile.jpg?5204d",
+        "sha1": "709b67cbe85ad07c747b9d9019c381f06326a898",
+        "timestamp": "2026-10-09T16:12:10Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 75760
+      }
+    },
     "161001": {
       "uncentered": {
         "title": "File:Vel'Koz BattlecastSkin.jpg",
@@ -69428,6 +69512,48 @@
         "bytes": 75863
       }
     },
+    "235081": {
+      "uncentered": {
+        "title": "File:Senna TrueDamageKnowMyNameSkin.jpg",
+        "requestedTitle": "File:Senna TrueDamageKnowMyNameSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Senna_TrueDamageKnowMyNameSkin.jpg?0c0fa",
+        "sha1": "4d973b1148939a9c5165bf1b8e29e018f95ba922",
+        "timestamp": "2026-10-09T16:08:31Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 261290
+      },
+      "loading": {
+        "title": "File:Senna TrueDamageKnowMyNameLoading.jpg",
+        "requestedTitle": "File:Senna TrueDamageKnowMyNameLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Senna_TrueDamageKnowMyNameLoading.jpg?e5b0a",
+        "sha1": "b32204781b867a4e29f1fb817419bd1a928e584a",
+        "timestamp": "2026-10-09T16:08:49Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 67187
+      },
+      "centered": {
+        "title": "File:Senna TrueDamageKnowMyNameCentered.jpg",
+        "requestedTitle": "File:Senna TrueDamageKnowMyNameCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Senna_TrueDamageKnowMyNameCentered.jpg?1d951",
+        "sha1": "8c36f99e6beda02922e065ca2ed3e519fa2b91c7",
+        "timestamp": "2026-10-09T16:09:29Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 131552
+      },
+      "tile": {
+        "title": "File:Senna TrueDamageKnowMyNameTile.jpg",
+        "requestedTitle": "File:Senna TrueDamageKnowMyNameTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Senna_TrueDamageKnowMyNameTile.jpg?224f3",
+        "sha1": "bc9c5b0516cc2e517bd7c5880d87e1e7f03c8813",
+        "timestamp": "2026-10-09T16:09:46Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 72310
+      }
+    },
     "236001": {
       "uncentered": {
         "title": "File:Lucian HiredGunSkin.jpg",
@@ -71276,6 +71402,48 @@
         "bytes": 50005
       }
     },
+    "245059": {
+      "uncentered": {
+        "title": "File:Ekko PrestigeTrueDamageKnowMyNameSkin.jpg",
+        "requestedTitle": "File:Ekko PrestigeTrueDamageKnowMyNameSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Ekko_PrestigeTrueDamageKnowMyNameSkin.jpg?82a5d",
+        "sha1": "7c1fccc5a161b6e469204735ca098d8548ddfc90",
+        "timestamp": "2026-10-14T02:55:08Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 271968
+      },
+      "loading": {
+        "title": "File:Ekko PrestigeTrueDamageKnowMyNameLoading.jpg",
+        "requestedTitle": "File:Ekko PrestigeTrueDamageKnowMyNameLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Ekko_PrestigeTrueDamageKnowMyNameLoading.jpg?6fbae",
+        "sha1": "3d64faf052dab8da98cf9b02a4b750dc5dbdb84d",
+        "timestamp": "2026-10-14T02:56:09Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 65558
+      },
+      "centered": {
+        "title": "File:Ekko PrestigeTrueDamageKnowMyNameCentered.jpg",
+        "requestedTitle": "File:Ekko PrestigeTrueDamageKnowMyNameCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Ekko_PrestigeTrueDamageKnowMyNameCentered.jpg?6a194",
+        "sha1": "3c109da845a97037e9b5224dc1c2c9466f47607d",
+        "timestamp": "2026-10-14T02:58:06Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 134719
+      },
+      "tile": {
+        "title": "File:Ekko PrestigeTrueDamageKnowMyNameTile.jpg",
+        "requestedTitle": "File:Ekko PrestigeTrueDamageKnowMyNameTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Ekko_PrestigeTrueDamageKnowMyNameTile.jpg?31517",
+        "sha1": "ca0c9c2b69dde1374663c0900613819de6482f79",
+        "timestamp": "2026-10-14T02:58:34Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 72828
+      }
+    },
     "246001": {
       "uncentered": {
         "title": "File:Qiyana BattleBossSkin.jpg",
@@ -71652,6 +71820,48 @@
         "width": 380,
         "height": 380,
         "bytes": 76211
+      }
+    },
+    "246051": {
+      "uncentered": {
+        "title": "File:Qiyana TrueDamageKnowMyNameSkin.jpg",
+        "requestedTitle": "File:Qiyana TrueDamageKnowMyNameSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Qiyana_TrueDamageKnowMyNameSkin.jpg?318f3",
+        "sha1": "4d973b1148939a9c5165bf1b8e29e018f95ba922",
+        "timestamp": "2026-10-09T16:05:59Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 261290
+      },
+      "loading": {
+        "title": "File:Qiyana TrueDamageKnowMyNameLoading.jpg",
+        "requestedTitle": "File:Qiyana TrueDamageKnowMyNameLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Qiyana_TrueDamageKnowMyNameLoading.jpg?2e8dc",
+        "sha1": "73a88edf78745fd60629da3e367ccc09c156bc54",
+        "timestamp": "2026-10-09T16:06:26Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 70855
+      },
+      "centered": {
+        "title": "File:Qiyana TrueDamageKnowMyNameCentered.jpg",
+        "requestedTitle": "File:Qiyana TrueDamageKnowMyNameCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Qiyana_TrueDamageKnowMyNameCentered.jpg?8914b",
+        "sha1": "8d357821954efd43c4fdc54f007a58d1160c38c4",
+        "timestamp": "2026-10-09T16:07:13Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 137888
+      },
+      "tile": {
+        "title": "File:Qiyana TrueDamageKnowMyNameTile.jpg",
+        "requestedTitle": "File:Qiyana TrueDamageKnowMyNameTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Qiyana_TrueDamageKnowMyNameTile.jpg?1b36e",
+        "sha1": "3ebb45c19376935522ab8f44d808543ef1827e7a",
+        "timestamp": "2026-10-09T16:07:27Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 75714
       }
     },
     "254001": {
