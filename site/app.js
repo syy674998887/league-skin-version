@@ -91,6 +91,7 @@ const TRANSLATIONS = {
     artModesAria: "原画版本",
     uncenteredArt: "原始",
     centeredArt: "聚焦",
+    loadingArt: "加载界面",
     animatedArt: "动态",
     patch: "PATCH",
     upcoming: "UPCOMING",
@@ -99,13 +100,17 @@ const TRANSLATIONS = {
     skinCount: "{count} 款皮肤",
     cardAria: "查看 {name} 原画与详情",
     cardAriaWithRarity: "查看 {name} 原画与详情，皮肤等级：{rarity}",
+    cardAriaWithLegacy: "{label}，Legacy 皮肤",
     skinAlt: "{name} 皮肤原画",
     artworkUnavailable: "原画暂时无法载入",
     artworkPending: "PBE 原画待同步",
     resultAll: "筛选结果：{skins} 款皮肤 {versions} 个版本",
     loadFailed: "载入失败",
     releasePatch: "版本 {version}",
+    skinReleased: "皮肤上线：{date}",
+    skinReleaseExpected: "预计上线：{date}",
     legacyBadge: "LEGACY",
+    spotlightVideo: "视频",
     actionChampion: "{name} 皮肤",
     actionSeries: "系列：{name}",
     championDetails: "{name} 皮肤",
@@ -199,6 +204,7 @@ const TRANSLATIONS = {
     artModesAria: "Artwork variants",
     uncenteredArt: "Original",
     centeredArt: "Focus",
+    loadingArt: "Loading",
     animatedArt: "Animated art",
     patch: "PATCH",
     upcoming: "UPCOMING",
@@ -207,13 +213,17 @@ const TRANSLATIONS = {
     skinCount: "{count} skins",
     cardAria: "View artwork and details for {name}",
     cardAriaWithRarity: "View artwork and details for {name}, rarity: {rarity}",
+    cardAriaWithLegacy: "{label}, Legacy skin",
     skinAlt: "{name} skin artwork",
     artworkUnavailable: "Artwork is temporarily unavailable",
     artworkPending: "PBE artwork pending",
     resultAll: "Filtered result: {skins} skins {versions} patches",
     loadFailed: "Load failed",
     releasePatch: "Patch {version}",
+    skinReleased: "Skin released: {date}",
+    skinReleaseExpected: "Expected release: {date}",
     legacyBadge: "LEGACY",
+    spotlightVideo: "Video",
     actionChampion: "{name} Skins",
     actionSeries: "Series: {name}",
     championDetails: "{name} Skins",
@@ -394,7 +404,17 @@ function comparableName(value) {
 function renderSkinName(target, name, champion) {
   const comparableSkin = comparableName(name);
   const comparableChampion = comparableName(champion).compact;
-  const matchStart = comparableSkin.compact.indexOf(comparableChampion);
+  let matchStart = -1;
+  const latinWord = /[\p{Script=Latin}\p{Number}]/u;
+  for (let index = comparableSkin.compact.length - comparableChampion.length; comparableChampion && index >= 0; index -= 1) {
+    if (!comparableSkin.compact.startsWith(comparableChampion, index)) continue;
+    const start = comparableSkin.ranges[index].start;
+    const end = comparableSkin.ranges[index + comparableChampion.length - 1].end;
+    if (latinWord.test(comparableChampion[0]) && latinWord.test(name[start - 1] || "")) continue;
+    if (latinWord.test(comparableChampion.at(-1)) && latinWord.test(name[end] || "")) continue;
+    matchStart = index;
+    break;
+  }
   if (matchStart === -1 || !comparableChampion) {
     target.textContent = name;
     return;
@@ -484,6 +504,24 @@ function rarityLabel(rarity) {
 function rarityIconUrl(rarity) {
   const fileName = RARITY_ICON_FILES[rarity];
   return fileName ? RARITY_ICON_ORIGIN + "/" + fileName : null;
+}
+
+function renderSelectLabel(node, select, value, label) {
+  node.replaceChildren();
+  const source = select === elements.rarityFilter ? rarityIconUrl(value)
+    : select === elements.legacyFilter && value === "true" ? LEGACY_ICON_URL : null;
+  if (source) {
+    const icon = document.createElement("img");
+    icon.className = "filter-status-icon";
+    icon.src = source;
+    icon.alt = "";
+    icon.width = 20;
+    icon.height = 20;
+    icon.draggable = false;
+    icon.addEventListener("error", () => icon.remove(), { once: true });
+    node.append(icon);
+  }
+  node.append(document.createTextNode(label));
 }
 
 function getSavedLanguage() {
@@ -653,6 +691,30 @@ function closeAllCustomSelects(except = null) {
   }
 }
 
+function positionCustomSelect(select) {
+  const { trigger, menu } = customSelectParts(select);
+  const rect = trigger.getBoundingClientRect();
+  const viewport = window.visualViewport;
+  const viewportTop = viewport?.offsetTop || 0;
+  const viewportHeight = viewport?.height || window.innerHeight;
+  const top = Math.max(viewportTop, document.querySelector(".site-header").getBoundingClientRect().bottom);
+  const bottom = Math.min(viewportTop + viewportHeight, elements.siteFooter.getBoundingClientRect().top);
+  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  const gap = rem * 0.4;
+  const above = Math.max(0, rect.top - top - gap - 8);
+  const below = Math.max(0, bottom - rect.bottom - gap - 8);
+  const preferredHeight = Math.min(menu.scrollHeight + 2, viewportHeight * 0.45, rem * 18);
+  const opensUp = below < preferredHeight && above > below;
+  select.classList.toggle("opens-up", opensUp);
+  menu.style.setProperty("--select-menu-space", `${opensUp ? above : below}px`);
+}
+
+function repositionOpenSelects() {
+  for (const select of document.querySelectorAll(".custom-select.is-open")) {
+    positionCustomSelect(select);
+  }
+}
+
 function openCustomSelect(select, { focusSelected = false } = {}) {
   closeAllCustomSelects(select);
   const { trigger, menu } = customSelectParts(select);
@@ -660,9 +722,10 @@ function openCustomSelect(select, { focusSelected = false } = {}) {
   menu.hidden = false;
   select.classList.add("is-open");
   trigger.setAttribute("aria-expanded", "true");
+  positionCustomSelect(select);
   const selected = menu.querySelector('[aria-selected="true"]');
-  selected?.scrollIntoView({ block: "nearest" });
-  if (focusSelected) (selected || menu.querySelector(".custom-select-option"))?.focus();
+  if (selected) menu.scrollTop = selected.offsetTop - (menu.clientHeight - selected.offsetHeight) / 2;
+  if (focusSelected) (selected || menu.querySelector(".custom-select-option"))?.focus({ preventScroll: true });
 }
 
 function selectCustomValue(select, selected, { emit = false } = {}) {
@@ -677,7 +740,7 @@ function selectCustomValue(select, selected, { emit = false } = {}) {
   if (!selectedOption) selectedOption = menu.querySelector(".custom-select-option");
   if (!selectedOption) return;
   select.dataset.value = selectedOption.dataset.value;
-  value.textContent = selectedOption.textContent;
+  renderSelectLabel(value, select, selectedOption.dataset.value, selectedOption.textContent);
   if (emit) {
     select.dispatchEvent(new CustomEvent("customchange", {
       detail: { value: selectedOption.dataset.value },
@@ -697,7 +760,7 @@ function populateSelect(select, options, selected) {
     option.setAttribute("role", "option");
     option.setAttribute("aria-selected", "false");
     option.tabIndex = -1;
-    option.textContent = label;
+    renderSelectLabel(option, select, value, label);
     return option;
   });
   menu.replaceChildren(...optionNodes);
@@ -901,7 +964,11 @@ function createSkinCard(skin, index) {
     rarityIcon.referrerPolicy = "no-referrer";
     rarityIcon.width = 35;
     rarityIcon.height = 35;
-    rarityIcon.addEventListener("error", () => { rarity.hidden = true; }, { once: true });
+    rarityIcon.addEventListener("error", () => {
+      rarity.classList.remove("has-icon");
+      rarity.textContent = displayRarity;
+    }, { once: true });
+    rarity.classList.add("has-icon");
     rarity.append(rarityIcon);
     rarity.hidden = false;
     card.setAttribute("aria-label", t("cardAriaWithRarity", {
@@ -920,9 +987,14 @@ function createSkinCard(skin, index) {
     legacyIcon.referrerPolicy = "no-referrer";
     legacyIcon.width = 35;
     legacyIcon.height = 35;
-    legacyIcon.addEventListener("error", () => { legacy.hidden = true; }, { once: true });
+    legacyIcon.addEventListener("error", () => {
+      legacy.classList.remove("has-icon");
+      legacy.textContent = t("legacyBadge");
+    }, { once: true });
+    legacy.classList.add("has-icon");
     legacy.append(legacyIcon);
     legacy.hidden = false;
+    card.setAttribute("aria-label", t("cardAriaWithLegacy", { label: card.getAttribute("aria-label") }));
   }
   if (skin.sources.length === 1) {
     const sourceTag = card.querySelector(".skin-source-tag");
@@ -1117,7 +1189,7 @@ function createVersionSection(group, startIndex) {
   if (isUpcoming) {
     releaseDate.classList.add("upcoming-notice");
     releaseDate.textContent = t("pbeNotice");
-  } else {
+  } else if (releaseDateValue) {
     releaseDate.dateTime = releaseDateValue;
     releaseDate.textContent = formatPatchDate(releaseDateValue);
   }
@@ -1173,7 +1245,7 @@ function render({ append = false } = {}) {
 
   elements.resultSummary.textContent = t("resultAll", {
     skins: numberText(matches.length),
-    versions: numberText(groups.length),
+    versions: numberText(groups.filter(group => !state.upcomingVersions.has(group.version) && !["unverified", "regional"].includes(group.version)).length),
   });
   elements.resultSummary.hidden = !hasActiveFilters();
   elements.empty.hidden = matches.length !== 0;
@@ -1390,6 +1462,10 @@ function showViewerImage(source, fallbacks, alt, dimensions) {
   const sources = artworkCandidates(source, ...(fallbacks || []));
   let sourceIndex = 0;
   elements.artViewerImage.onload = () => {
+    adaptArtViewerToMedia(
+      elements.artViewerImage.naturalWidth,
+      elements.artViewerImage.naturalHeight,
+    );
     elements.artViewerMedia.classList.remove("is-loading");
     elements.artViewerMedia.setAttribute("aria-busy", "false");
     finishArtViewerSkinSwitch();
@@ -1452,6 +1528,7 @@ function artSources(skin) {
       || skin.image
       || skin.imageFallback
     ),
+    loading: skin.art?.loading || skin.artFallback?.loading || null,
     video: skin.art?.videoUncentered || skin.art?.videoCentered || null,
   };
 }
@@ -1587,8 +1664,11 @@ function renderArtViewerInfo(skin) {
       t("releasePatch", { version: skin.version }),
       "patch-badge",
     ));
-    const releaseDate = state.releaseDates.get(skin.version);
-    if (releaseDate) elements.artViewerMeta.append(createMetaBadge(formatPatchDate(releaseDate)));
+  }
+  const releaseDate = skin.releaseDate;
+  if (releaseDate) {
+    const label = skin.status === "upcoming" ? "skinReleaseExpected" : "skinReleased";
+    elements.artViewerMeta.append(createMetaBadge(t(label, {date: formatPatchDate(releaseDate)})));
   }
   if (skin.sources.length === 1) {
     elements.artViewerMeta.append(createMetaBadge(
@@ -1597,6 +1677,21 @@ function renderArtViewerInfo(skin) {
     ));
   }
   elements.artViewerActions.replaceChildren();
+  if (skin.spotlight) {
+    const spotlightLink = document.createElement("a");
+    spotlightLink.href = "https://www.youtube.com/watch?v=" + skin.spotlight.videoId;
+    spotlightLink.target = "_blank";
+    spotlightLink.rel = "noopener noreferrer";
+    spotlightLink.className = "art-viewer-action";
+    spotlightLink.textContent = t("spotlightVideo");
+    const arrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    arrow.setAttribute("viewBox", "0 0 16 16");
+    arrow.setAttribute("aria-hidden", "true");
+    arrow.innerHTML = '<path d="M4 12 12 4M4 4h8v8"/>';
+    spotlightLink.append(arrow);
+    spotlightLink.title = skin.spotlight.title;
+    elements.artViewerActions.append(spotlightLink);
+  }
   const championKey = skin.championAlias || skin.champion;
   const championButton = document.createElement("button");
   championButton.type = "button";
@@ -1871,7 +1966,7 @@ function createChromaCard(chroma, skin) {
     image.draggable = false;
     image.referrerPolicy = "no-referrer";
     image.src = chroma.image;
-    image.alt = "";
+    image.alt = chromaName(chroma);
     media.append(image);
   }
   const label = document.createElement("span");
@@ -1923,6 +2018,7 @@ function setArtViewerSkin(skin, { animateResize = false } = {}) {
 }
 
 function openArtViewer(skin, trigger) {
+  closeFooterDrawer();
   artViewerTrigger = trigger;
   document.body.classList.add("art-viewer-open");
   if (!elements.artViewer.open) {
@@ -2101,16 +2197,20 @@ function bindEvents() {
     }
   });
   window.addEventListener("scroll", () => {
+    repositionOpenSelects();
     scheduleVersionPositionSync();
     scheduleBackToTopVisibility();
   }, { passive: true });
   window.addEventListener("resize", () => {
+    repositionOpenSelects();
     syncVisualViewportHeight();
     updateVersionActivationOffset();
     scheduleVersionPositionSync();
     scheduleBackToTopVisibility();
   });
   window.visualViewport?.addEventListener("resize", syncVisualViewportHeight, { passive: true });
+  window.visualViewport?.addEventListener("resize", repositionOpenSelects, { passive: true });
+  window.visualViewport?.addEventListener("scroll", repositionOpenSelects, { passive: true });
   elements.backToTop.addEventListener("click", () => {
     const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
       ? "auto"
@@ -2147,7 +2247,7 @@ function bindEvents() {
     const target = ensureVersionRendered(anchor.dataset.version);
     if (!target) return;
     window.history.pushState(null, "", anchor.href);
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    target.scrollIntoView({ behavior: "auto", block: "start" });
   });
   window.addEventListener("popstate", () => {
     const keys = ["lang", "query", "champion", "series", "rarity", "legacy", "chromas"];
@@ -2199,8 +2299,8 @@ function validatePayload(payload) {
     && Array.isArray(payload.versions)
     && payload.versions.every((entry) => (
       typeof entry.version === "string"
-      && typeof entry.releaseDate === "string"
-      && /^\d{4}-\d{2}-\d{2}$/.test(entry.releaseDate)
+      && (entry.releaseDate === null || (typeof entry.releaseDate === "string"
+      && /^\d{4}-\d{2}-\d{2}$/.test(entry.releaseDate)))
     ))
     && Array.isArray(payload.skinLines)
     && Array.isArray(payload.upcoming)
@@ -2226,6 +2326,7 @@ function validatePayload(payload) {
 }
 
 async function initialize() {
+  setTheme(currentTheme());
   syncVisualViewportHeight();
   try {
     const dataUrl = new URL("./data/skins.json", import.meta.url);

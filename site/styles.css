@@ -39,7 +39,7 @@ html[data-theme="light"] {
 html { scroll-behavior: smooth; }
 
 body {
-  min-width: 320px;
+  min-width: 0;
   margin: 0;
   overflow-x: hidden;
   background:
@@ -305,7 +305,7 @@ html[data-theme="light"] .theme-icon-moon {
 
 .toolbar {
   display: grid;
-  grid-template-columns: minmax(12rem, 2fr) repeat(5, minmax(7rem, 1fr)) auto;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
   gap: 0.75rem;
   align-items: end;
   padding: 0.8rem;
@@ -313,6 +313,8 @@ html[data-theme="light"] .theme-icon-moon {
   border-radius: 0.75rem;
   background: var(--surface);
 }
+
+.search-field { grid-column: span 2; }
 
 .control-field {
   display: grid;
@@ -382,6 +384,22 @@ input:focus, .clear-button:focus {
   white-space: nowrap;
 }
 
+#rarity-filter .custom-select-value,
+#rarity-filter .custom-select-option,
+#legacy-filter .custom-select-value,
+#legacy-filter .custom-select-option {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.filter-status-icon {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
 .custom-select-arrow {
   flex: 0 0 auto;
   width: 16px;
@@ -410,7 +428,7 @@ input:focus, .clear-button:focus {
   right: 0;
   left: 0;
   z-index: 20;
-  max-height: min(18rem, 45vh);
+  max-height: min(18rem, 45vh, var(--select-menu-space, 100vh));
   padding: 0.3rem;
   overflow: auto;
   overscroll-behavior: contain;
@@ -424,6 +442,11 @@ input:focus, .clear-button:focus {
 }
 
 .custom-select-menu::-webkit-scrollbar { width: 5px; }
+
+.custom-select.opens-up .custom-select-menu {
+  top: auto;
+  bottom: calc(100% + 0.4rem);
+}
 .custom-select-menu::-webkit-scrollbar-track { background: transparent; }
 .custom-select-menu::-webkit-scrollbar-thumb {
   border-radius: 999px;
@@ -765,9 +788,28 @@ input:focus, .clear-button:focus {
 .skin-rarity,
 .skin-legacy {
   display: grid;
+  width: auto;
+  height: auto;
+  min-width: 20px;
+  padding: 3px 6px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 5px;
+  background: rgba(15, 22, 33, 0.83);
+  color: #e0e7ef;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.skin-rarity.has-icon,
+.skin-legacy.has-icon {
   width: 40px;
   height: 40px;
-  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .skin-status-icons img {
@@ -922,6 +964,9 @@ body.art-viewer-open { overflow: hidden; }
 .art-viewer-media {
   position: relative;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  width: 100%;
   height: var(--art-media-height, auto);
   aspect-ratio: var(--art-media-aspect, 1215 / 717);
   max-height: calc(100dvh - 7.5rem);
@@ -967,6 +1012,8 @@ body.art-viewer-open { overflow: hidden; }
 .art-viewer-media img,
 .art-viewer-media video {
   display: block;
+  min-width: 0;
+  min-height: 0;
   width: 100%;
   height: 100%;
   max-height: calc(100dvh - 7.5rem);
@@ -1072,8 +1119,21 @@ body.art-viewer-open { overflow: hidden; }
 .art-viewer-badge.source-badge { color: #c3ccd8; }
 
 .art-viewer-action {
+  display: inline-flex;
+  text-decoration: none;
   color: #d9dde3;
   transition: border-color 150ms ease, color 150ms ease, background 150ms ease;
+}
+
+.art-viewer-action > svg {
+  width: 1em;
+  height: 1em;
+  margin-left: 0.2em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .art-viewer-action:hover,
@@ -1879,11 +1939,6 @@ html[data-theme="light"] .footer-links :is(a, button) { color: #4f5a68; }
   from { opacity: 0; transform: translateX(8px); }
 }
 
-@media (max-width: 1100px) {
-  .toolbar { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .search-field { grid-column: span 2; }
-}
-
 @media (max-width: 900px) {
   :root { --browser-layout-gap: 0.8rem; }
 
@@ -1967,4 +2022,10 @@ html[data-theme="light"] .footer-links :is(a, button) { color: #4f5a68; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+@media (max-width: 700px) {
+  .archive-header-inner { grid-template-columns: auto 1fr auto; gap: .65rem; }
+  .archive-header-inner .update-note { font-size: .65rem; }
+  .language-toggle { white-space: nowrap; }
 }

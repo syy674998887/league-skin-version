@@ -14,7 +14,7 @@ import sys
 from typing import Callable, Sequence
 from urllib.parse import quote
 
-from . import updater
+from . import spotlights, updater
 
 
 SITE_SOURCE_DIR = updater.PROJECT_ROOT / "site"
@@ -450,10 +450,6 @@ def build_site_payload(
     versions = updater.load_versions(versions_path)
     updater.verify_versions_data(versions)
     patch_dates = updater.load_patch_dates(patch_dates_path)
-    updater.verify_patch_dates_data(
-        patch_dates,
-        expected_versions=versions.values(),
-    )
     # A source that is unavailable for this build cannot prove a skin is
     # one-sided, so skins are only tagged when both sources were read.
     wiki_available = True
@@ -658,6 +654,7 @@ def build_site_payload(
                 "skinNumber": skin_number,
                 "version": patch,
                 "status": "released",
+                "releaseDate": wiki_record.release_date if wiki_record else None,
                 "image": primary_image or fallback_image,
                 "imageFallback": fallback_image
                 if fallback_image != primary_image
@@ -692,6 +689,7 @@ def build_site_payload(
     pbe_matched = 0
     for skin_id in upcoming_ids:
         scheduled_skin = scheduled.get(skin_id)
+        wiki_record = wiki_records.get(skin_id)
         numeric_id = int(skin_id)
         champion_id, skin_number = divmod(numeric_id, 1000)
         english_detail = pbe_en.get(skin_id)
@@ -746,6 +744,7 @@ def build_site_payload(
                 if scheduled_skin is not None
                 else UNSCHEDULED_VERSION,
                 "status": "upcoming",
+                "releaseDate": wiki_record.release_date if wiki_record else None,
                 "image": primary_image or fallback_image,
                 "imageFallback": fallback_image
                 if fallback_image != primary_image
@@ -857,7 +856,7 @@ def build_site_payload(
             {
                 "version": patch,
                 "count": counts[patch],
-                "releaseDate": patch_dates[patch],
+                "releaseDate": patch_dates.get(patch),
             }
             for patch in ordered_versions
         ],
@@ -893,6 +892,7 @@ def build_site(
         fetcher=fetcher,
         data_updated_at=data_updated_at,
     )
+    spotlights.attach_spotlights(payload["skins"], spotlights.load_catalog())
     output.mkdir(parents=True, exist_ok=True)
     shutil.copytree(source, output, dirs_exist_ok=True)
     data_dir = output / "data"

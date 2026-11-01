@@ -281,7 +281,7 @@ class SitePayloadTests(unittest.TestCase):
                         skin.champion,
                         skin.name,
                         "Upcoming",
-                        None,
+                        upcoming_data[skin.skin_id].get("releaseDate"),
                     )
                     for skin in upcoming_skins
                 },
@@ -317,6 +317,29 @@ class SitePayloadTests(unittest.TestCase):
                 data_updated_at=data_updated_at,
                 minimum_catalog_entries=1,
             )
+
+    def test_keeps_skin_release_date_when_patch_date_is_missing(self) -> None:
+        snapshot = updater.WikiUpcomingSnapshot((), updater.WikiSkinCatalog({}, {}, {}, {
+            "222001": updater.WikiSkinRecord(
+                "222001", "Jinx", "Crime City", None, "2020-06-25"
+            ),
+        }))
+        with tempfile.TemporaryDirectory() as temporary:
+            paths = self.write_inputs(Path(temporary), versions={"222001": "10.13"})
+            paths[2].write_text("{}", encoding="utf-8")
+            with mock.patch.object(
+                updater, "load_wiki_upcoming_snapshot", return_value=snapshot
+            ):
+                payload = site_builder.build_site_payload(
+                    *paths[:3], assets_path=paths[3], fetcher=self.fetch,
+                    minimum_catalog_entries=1,
+                )
+        self.assertEqual(payload["versions"], [
+            {"version": "10.13", "count": 1, "releaseDate": None}
+        ])
+        by_id = {skin["id"]: skin for skin in payload["skins"]}
+        self.assertEqual(by_id["222001"]["releaseDate"], "2020-06-25")
+        self.assertIsNone(by_id["222065"]["releaseDate"])
 
     def test_flattens_quest_tiers_and_inherits_classification(self) -> None:
         flattened = site_builder._flatten_cdragon_skins(
@@ -426,6 +449,7 @@ class SitePayloadTests(unittest.TestCase):
                 "name": "Ocean Song",
                 "plannedPatch": "26.17",
                 "status": "pbe",
+                "releaseDate": "2026-08-27",
             }
         }
         with tempfile.TemporaryDirectory() as temporary:
@@ -441,6 +465,7 @@ class SitePayloadTests(unittest.TestCase):
             skin for skin in payload["skins"] if skin["status"] == "upcoming"
         )
         self.assertEqual(record["nameZh"], "海之歌 金克丝")
+        self.assertEqual(record["releaseDate"], "2026-08-27")
         self.assertIn("222065-loading", record["image"])
         self.assertIn("/pbe/", record["imageFallback"])
         self.assertEqual(record["artSource"], "League Wiki")

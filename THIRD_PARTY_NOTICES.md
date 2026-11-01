@@ -12,6 +12,11 @@ It does not relicense third-party data, game content, or trademarks.
   and revision-addressed primary artwork URLs come from the community-run
   [League of Legends Wiki](https://wiki.leagueoflegends.com/). Those records
   remain subject to the Wiki's source terms.
+- SkinSpotlights video IDs and titles come from the independent
+  [SkinSpotlights YouTube channel](https://www.youtube.com/@SkinSpotlights).
+  These videos open as external links and are not downloaded or embedded by
+  the site. Rights remain with the respective owners. Video links are not
+  evidence of a skin's release date or patch.
 
 League of Legends and Riot Games are trademarks or registered trademarks of
 Riot Games, Inc. This project is not endorsed by or affiliated with Riot Games.

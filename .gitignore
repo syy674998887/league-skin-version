@@ -11,3 +11,4 @@ htmlcov/
 
 Thumbs.db
 Desktop.ini
+/output/playwright/

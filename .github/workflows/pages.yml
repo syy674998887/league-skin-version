@@ -50,6 +50,14 @@ jobs:
           python -B skin_update.py
           echo "data_updated_at=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_OUTPUT"
 
+      - name: Update SkinSpotlights links
+        if: steps.policy.outputs.update == 'true'
+        # Keep the saved catalog if YouTube is unavailable.
+        continue-on-error: true
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: python -B -m league_skin_version.spotlights
+
       - name: Run tests
         env:
           PYTHONPATH: ${{ github.workspace }}/src
@@ -64,7 +72,7 @@ jobs:
         if: steps.policy.outputs.update == 'true'
         shell: bash
         run: |
-          git add -- skin_ids.json skin_versions.json patch_dates.json skin_assets.json
+          git add -- skin_ids.json skin_versions.json patch_dates.json skin_assets.json skin_spotlights.json
           if git diff --cached --quiet; then
             echo "Skin data is already current."
             exit 0
