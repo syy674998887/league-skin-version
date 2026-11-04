@@ -17558,6 +17558,90 @@
         "bytes": 67267
       }
     },
+    "28065": {
+      "uncentered": {
+        "title": "File:Evelynn KDAFIRESTARTERSkin.jpg",
+        "requestedTitle": "File:Evelynn KDAFIRESTARTERSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Evelynn_KDAFIRESTARTERSkin.jpg?86934",
+        "sha1": "775756eab52769d35c662628565fef99b58e79a4",
+        "timestamp": "2026-10-27T19:36:24Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 238644
+      },
+      "loading": {
+        "title": "File:Evelynn KDAFIRESTARTERLoading.jpg",
+        "requestedTitle": "File:Evelynn KDAFIRESTARTERLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Evelynn_KDAFIRESTARTERLoading.jpg?0a680",
+        "sha1": "42d7992fb437bffe9e311b96e80cea76d5f3891f",
+        "timestamp": "2026-10-30T23:25:18Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 44730
+      },
+      "centered": {
+        "title": "File:Evelynn KDAFIRESTARTERCentered.jpg",
+        "requestedTitle": "File:Evelynn KDAFIRESTARTERCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Evelynn_KDAFIRESTARTERCentered.jpg?91b4e",
+        "sha1": "aaa94e29441dd67414633333f092b5b8b337dde5",
+        "timestamp": "2026-10-27T19:37:18Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 140529
+      },
+      "tile": {
+        "title": "File:Evelynn KDAFIRESTARTERTile.jpg",
+        "requestedTitle": "File:Evelynn KDAFIRESTARTERTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Evelynn_KDAFIRESTARTERTile.jpg?205fc",
+        "sha1": "f4f78df6895a1124a333a45f20fb4a4644c7c65b",
+        "timestamp": "2026-10-27T19:37:32Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 69084
+      }
+    },
+    "28066": {
+      "uncentered": {
+        "title": "File:Evelynn KDAHitmakerSkin.jpg",
+        "requestedTitle": "File:Evelynn KDAHitmakerSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Evelynn_KDAHitmakerSkin.jpg?215ab",
+        "sha1": "a6f811ee6e9f6587075c1d5b877372fb4bc16136",
+        "timestamp": "2026-10-21T15:20:00Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 232091
+      },
+      "loading": {
+        "title": "File:Evelynn KDAHitmakerLoading.jpg",
+        "requestedTitle": "File:Evelynn KDAHitmakerLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Evelynn_KDAHitmakerLoading.jpg?3ea9a",
+        "sha1": "efbf60fe9427293a5413d772612e43c22342cbbe",
+        "timestamp": "2026-10-21T15:20:19Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 55266
+      },
+      "centered": {
+        "title": "File:Evelynn KDAHitmakerCentered.jpg",
+        "requestedTitle": "File:Evelynn KDAHitmakerCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Evelynn_KDAHitmakerCentered.jpg?d9edc",
+        "sha1": "1b9d610300eb5e601c75367cb57e583c3c2400f3",
+        "timestamp": "2026-10-21T15:22:08Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 128271
+      },
+      "tile": {
+        "title": "File:Evelynn KDAHitmakerTile.jpg",
+        "requestedTitle": "File:Evelynn KDAHitmakerTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Evelynn_KDAHitmakerTile.jpg?500e9",
+        "sha1": "9574007622488191966e576e6c2c36cb9d3dec2d",
+        "timestamp": "2026-10-21T15:22:25Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 61906
+      }
+    },
     "29001": {
       "uncentered": {
         "title": "File:Twitch KingpinSkin.jpg",
@@ -43262,6 +43346,48 @@
         "bytes": 73752
       }
     },
+    "84102": {
+      "uncentered": {
+        "title": "File:Akali KDAFIRESTARTERIgnitionSkin.jpg",
+        "requestedTitle": "File:Akali KDAFIRESTARTERIgnitionSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_KDAFIRESTARTERIgnitionSkin.jpg?903e9",
+        "sha1": "46699ee65c8d9076c512e6a7babcb09054dab60c",
+        "timestamp": "2026-10-21T15:17:42Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 238139
+      },
+      "loading": {
+        "title": "File:Akali KDAFIRESTARTERIgnitionLoading.jpg",
+        "requestedTitle": "File:Akali KDAFIRESTARTERIgnitionLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_KDAFIRESTARTERIgnitionLoading.jpg?29b30",
+        "sha1": "c13a6cfb0046a0a0b6a65c71a52ca7931b23d7a3",
+        "timestamp": "2026-10-21T15:18:06Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 61696
+      },
+      "centered": {
+        "title": "File:Akali KDAFIRESTARTERIgnitionCentered.jpg",
+        "requestedTitle": "File:Akali KDAFIRESTARTERIgnitionCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_KDAFIRESTARTERIgnitionCentered.jpg?75153",
+        "sha1": "0ff2993753fc0d08649b6bc159647b7ceace6a98",
+        "timestamp": "2026-10-21T15:18:52Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 132437
+      },
+      "tile": {
+        "title": "File:Akali KDAFIRESTARTERIgnitionTile.jpg",
+        "requestedTitle": "File:Akali KDAFIRESTARTERIgnitionTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_KDAFIRESTARTERIgnitionTile.jpg?518e4",
+        "sha1": "2bf01366373af657df102499a29d02eccea1b76d",
+        "timestamp": "2026-10-21T15:19:07Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 78952
+      }
+    },
     "84103": {
       "uncentered": {
         "title": "File:Akali TrueDamageKnowMyNameSkin.jpg",
@@ -50694,6 +50820,48 @@
         "width": 380,
         "height": 380,
         "bytes": 64409
+      }
+    },
+    "103097": {
+      "uncentered": {
+        "title": "File:Ahri KDAFIRESTARTERSkin.jpg",
+        "requestedTitle": "File:Ahri KDAFIRESTARTERSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Ahri_KDAFIRESTARTERSkin.jpg?f6ebf",
+        "sha1": "775756eab52769d35c662628565fef99b58e79a4",
+        "timestamp": "2026-10-27T19:33:59Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 238644
+      },
+      "loading": {
+        "title": "File:Ahri KDAFIRESTARTERLoading.jpg",
+        "requestedTitle": "File:Ahri KDAFIRESTARTERLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Ahri_KDAFIRESTARTERLoading.jpg?aed53",
+        "sha1": "ffd5fa8c533fe1d4949bdd4ae6024145dbd61c11",
+        "timestamp": "2026-10-30T23:18:00Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 45811
+      },
+      "centered": {
+        "title": "File:Ahri KDAFIRESTARTERCentered.jpg",
+        "requestedTitle": "File:Ahri KDAFIRESTARTERCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Ahri_KDAFIRESTARTERCentered.jpg?1ee7c",
+        "sha1": "ddf90a89797bc5463b0305afaec0816213fc5e16",
+        "timestamp": "2026-10-30T23:17:07Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 134125
+      },
+      "tile": {
+        "title": "File:Ahri KDAFIRESTARTERTile.jpg",
+        "requestedTitle": "File:Ahri KDAFIRESTARTERTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Ahri_KDAFIRESTARTERTile.jpg?f0a34",
+        "sha1": "5009c5fb9730f87dc59ef5ea387cfe5cc2f83844",
+        "timestamp": "2026-10-27T19:35:12Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 64765
       }
     },
     "104001": {
@@ -62874,6 +63042,48 @@
         "width": 380,
         "height": 380,
         "bytes": 71476
+      }
+    },
+    "145083": {
+      "uncentered": {
+        "title": "File:Kai'Sa KDAFIRESTARTERSkin.jpg",
+        "requestedTitle": "File:Kai'Sa KDAFIRESTARTERSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Kai%27Sa_KDAFIRESTARTERSkin.jpg?8cf23",
+        "sha1": "775756eab52769d35c662628565fef99b58e79a4",
+        "timestamp": "2026-10-22T22:27:57Z",
+        "width": 1215,
+        "height": 717,
+        "bytes": 238644
+      },
+      "loading": {
+        "title": "File:Kai'Sa KDAFIRESTARTERLoading.jpg",
+        "requestedTitle": "File:Kai'Sa KDAFIRESTARTERLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Kai%27Sa_KDAFIRESTARTERLoading.jpg?653dc",
+        "sha1": "6b15322a9e4f6c4e167a97c16f427e729fdf02d6",
+        "timestamp": "2026-10-30T23:30:38Z",
+        "width": 308,
+        "height": 560,
+        "bytes": 51642
+      },
+      "centered": {
+        "title": "File:Kai'Sa KDAFIRESTARTERCentered.jpg",
+        "requestedTitle": "File:Kai'Sa KDAFIRESTARTERCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Kai%27Sa_KDAFIRESTARTERCentered.jpg?5482f",
+        "sha1": "388e880a73593a0c78be46f3278b9902dcf6ca5a",
+        "timestamp": "2026-10-22T22:29:08Z",
+        "width": 1280,
+        "height": 720,
+        "bytes": 127149
+      },
+      "tile": {
+        "title": "File:Kai'Sa KDAFIRESTARTERTile.jpg",
+        "requestedTitle": "File:Kai'Sa KDAFIRESTARTERTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Kai%27Sa_KDAFIRESTARTERTile.jpg?9b2e6",
+        "sha1": "1ab03bcce1437213ce86d97f0e6930c616aefedb",
+        "timestamp": "2026-10-22T22:29:27Z",
+        "width": 380,
+        "height": 380,
+        "bytes": 64499
       }
     },
     "147001": {
