@@ -43348,9 +43348,9 @@
     },
     "84102": {
       "uncentered": {
-        "title": "File:Akali KDAFIRESTARTERIgnitionSkin.jpg",
-        "requestedTitle": "File:Akali KDAFIRESTARTERIgnitionSkin.jpg",
-        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_KDAFIRESTARTERIgnitionSkin.jpg?903e9",
+        "title": "File:Akali KDAFIRESTARTERSkin.jpg",
+        "requestedTitle": "File:Akali KDAFIRESTARTERSkin.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_KDAFIRESTARTERSkin.jpg?903e9",
         "sha1": "46699ee65c8d9076c512e6a7babcb09054dab60c",
         "timestamp": "2026-10-21T15:17:42Z",
         "width": 1215,
@@ -43358,9 +43358,9 @@
         "bytes": 238139
       },
       "loading": {
-        "title": "File:Akali KDAFIRESTARTERIgnitionLoading.jpg",
-        "requestedTitle": "File:Akali KDAFIRESTARTERIgnitionLoading.jpg",
-        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_KDAFIRESTARTERIgnitionLoading.jpg?29b30",
+        "title": "File:Akali KDAFIRESTARTERLoading.jpg",
+        "requestedTitle": "File:Akali KDAFIRESTARTERLoading.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_KDAFIRESTARTERLoading.jpg?29b30",
         "sha1": "c13a6cfb0046a0a0b6a65c71a52ca7931b23d7a3",
         "timestamp": "2026-10-21T15:18:06Z",
         "width": 308,
@@ -43368,9 +43368,9 @@
         "bytes": 61696
       },
       "centered": {
-        "title": "File:Akali KDAFIRESTARTERIgnitionCentered.jpg",
-        "requestedTitle": "File:Akali KDAFIRESTARTERIgnitionCentered.jpg",
-        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_KDAFIRESTARTERIgnitionCentered.jpg?75153",
+        "title": "File:Akali KDAFIRESTARTERCentered.jpg",
+        "requestedTitle": "File:Akali KDAFIRESTARTERCentered.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_KDAFIRESTARTERCentered.jpg?75153",
         "sha1": "0ff2993753fc0d08649b6bc159647b7ceace6a98",
         "timestamp": "2026-10-21T15:18:52Z",
         "width": 1280,
@@ -43378,9 +43378,9 @@
         "bytes": 132437
       },
       "tile": {
-        "title": "File:Akali KDAFIRESTARTERIgnitionTile.jpg",
-        "requestedTitle": "File:Akali KDAFIRESTARTERIgnitionTile.jpg",
-        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_KDAFIRESTARTERIgnitionTile.jpg?518e4",
+        "title": "File:Akali KDAFIRESTARTERTile.jpg",
+        "requestedTitle": "File:Akali KDAFIRESTARTERTile.jpg",
+        "url": "https://wiki.leagueoflegends.com/en-us/images/Akali_KDAFIRESTARTERTile.jpg?518e4",
         "sha1": "2bf01366373af657df102499a29d02eccea1b76d",
         "timestamp": "2026-10-21T15:19:07Z",
         "width": 380,
