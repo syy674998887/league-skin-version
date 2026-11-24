@@ -75,6 +75,30 @@ class FetchTextTests(unittest.TestCase):
         sleep.assert_called_once()
 
 
+    def test_retries_cloudflare_origin_errors(self) -> None:
+        for status in (520, 522):
+            with self.subTest(status=status):
+                response = mock.MagicMock()
+                response.__enter__.return_value.read.return_value = b"recovered"
+                response.__enter__.return_value.headers.get_content_charset.return_value = "utf-8"
+                error = updater.HTTPError(
+                    "https://example.test/data", status, "upstream failure", {}, None
+                )
+                with (
+                    mock.patch.object(
+                        updater, "urlopen", side_effect=[error, response]
+                    ) as urlopen,
+                    mock.patch.object(updater.time, "sleep") as sleep,
+                ):
+                    self.assertEqual(
+                        updater.fetch_text("https://example.test/data", retries=1),
+                        "recovered",
+                    )
+
+                self.assertEqual(urlopen.call_count, 2)
+                sleep.assert_called_once_with(1)
+
+
 class PatchVersionTests(unittest.TestCase):
     def test_normalizes_current_historical_and_seasonal_versions(self) -> None:
         cases = {

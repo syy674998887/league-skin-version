@@ -77,7 +77,7 @@ _LEGACY_PATCH_VALUE_RE = re.compile(
     r"[.\-](?P<revision>\d{1,3})(?P<suffix>[a-z]?)$",
     re.IGNORECASE,
 )
-_RETRYABLE_HTTP_CODES = {408, 425, 429, 500, 502, 503, 504}
+_RETRYABLE_HTTP_CODES = {408, 425, 429, 500, 502, 503, 504, 520, 522}
 
 
 class UpdateError(RuntimeError):
