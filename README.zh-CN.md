@@ -63,7 +63,7 @@ uv run skin-update
 
 更新器先验证完整的候选快照，再原子替换有变化的文件。内容不变则不重写，也不会静默删除已有的正式皮肤历史。运行 `uv run skin-update --help` 可查看输出路径与网络选项。
 
-视频目录单独运行 `uv run python -B -m league_skin_version.spotlights` 更新，然后重新构建。按皮肤英文全名匹配，统一标点，并在完整名称匹配之后识别重做年份注记；不同至臻年份版本保持独立，不做模糊匹配。优先最新完整展示，其次预发布预览。2026-10-31 联网更新后的本地站点共 1,970 条记录，匹配 1,750 条，其中 25 条为预览，220 条不显示视频按钮。
+视频目录单独运行 `uv run python -B -m league_skin_version.spotlights` 更新，然后重新构建。按皮肤英文全名匹配，统一标点，并在完整名称匹配之后识别重做年份注记；不同至臻年份版本保持独立，不做模糊匹配。优先最新完整展示，其次预发布预览。
 
 首次目录使用 `yt-dlp --ignore-config --no-cache-dir --flat-playlist --skip-download -J https://www.youtube.com/@SkinSpotlights/videos` 读取频道公开视频标题和编号；该 JSON 输出可通过 `uv run python -B -m league_skin_version.spotlights --import-catalog PATH` 重新导入。yt-dlp 仅为可选的完整导入工具，不是项目依赖。日常更新读取无需密钥的公开频道订阅源，目前仅返回最近 15 条上传；长时间中断或集中大量上传时，可能需要重新完整导入。订阅源不能自动识别旧视频被删除或转为私密。
 

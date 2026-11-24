@@ -93,6 +93,7 @@ class WorkflowPolicyTests(unittest.TestCase):
                 mock.patch("sys.argv", ["workflow_policy.py"]),
                 mock.patch.object(policy, "github_json") as fetch,
                 mock.patch.object(policy, "cdragon_wait_reason", return_value=None),
+                redirect_stdout(io.StringIO()),
             ):
                 policy.main()
             fetch.assert_not_called()
